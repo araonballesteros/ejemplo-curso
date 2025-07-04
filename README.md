@@ -12,4 +12,4 @@ python qwen3_demo.py
 
 ## Pruebas
 
-python test_qwen3_demo.py
+pytest -q tests/
