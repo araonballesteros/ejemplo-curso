@@ -1,5 +1,6 @@
 import gradio as gr
 
+
 def reasoning_mode_switch(input_text, mode):
     if not input_text:
         return "Por favor ingresa un texto de entrada."
@@ -10,6 +11,7 @@ def reasoning_mode_switch(input_text, mode):
     else:
         return "Modo no válido seleccionado."
 
+
 def multilingual_translation(text, language):
     if not text:
         return "Por favor ingresa un texto para traducir."
@@ -19,6 +21,7 @@ def multilingual_translation(text, language):
         "de": f"Traducción al alemán de '{text}'",
     }
     return translations.get(language, "Idioma no soportado.")
+
 
 with gr.Blocks() as demo:
     gr.Markdown("# Cambiar modo de razonamiento")
@@ -33,6 +36,9 @@ with gr.Blocks() as demo:
     language = gr.Radio(choices=["es", "fr", "de"], label="Idioma")
     trans_output = gr.Textbox(label="Traducción")
     trans_btn = gr.Button("Traducir")
-    trans_btn.click(multilingual_translation, inputs=[trans_text, language], outputs=trans_output)
+    trans_btn.click(
+        multilingual_translation, inputs=[trans_text, language], outputs=trans_output
+    )
 
-demo.launch()
+if __name__ == "__main__":
+    demo.launch()
