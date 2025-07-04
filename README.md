@@ -7,7 +7,7 @@ Este proyecto demuestra el uso de Gradio para:
 
 ## Cómo ejecutar
 
-pip install gradio  
+pip install gradio
 python qwen3_demo.py
 
 ## Pruebas
